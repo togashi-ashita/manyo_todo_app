@@ -1,24 +1,48 @@
-# README
+# manyo_todo_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+- todoアプリです。
+- 基本機能
+  - User機能  
+    ログイン  
+    プロフィール画像登録  
+    レベルアップ(こなしたタスクに応じてexpがたまり、それに応じてレベルが上がる)  
+  - List機能  
+    taskのジャンル分け  
+    list内のtaskを複数のユーザーで共有  
+  - Task機能  
+    taskの投稿、編集、削除  
+    期限の設定  
+    経験値  
 
-Things you may want to cover:
+## tableschema
 
-* Ruby version
+### User
+| name | type |
+|---|---|
+| name       | str |
+| email      | str |
+| login_id   | str |
+| password   | str |
+| img        | str |
+| Lv         | int |
+| exp        | int |
 
-* System dependencies
+### List
+| name | type |
+|---|---|
+| name    | str |
+| user_id | int |
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Task
+| name | type |
+|---|---|
+| list_id              | int      |
+| user_id              | int      |
+| should_do_user_id    | int      |
+| content              | str      |
+| limit                | datetime |
+| memo                 | str      |
+| complete             | str      |
+| exp                  | int      |
+| difficulty           | str      |
