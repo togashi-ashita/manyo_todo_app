@@ -43,6 +43,6 @@
 | content              | str      |
 | limit                | datetime |
 | memo                 | str      |
-| complete             | str      |
+| complete             | boolean  |
 | exp                  | int      |
 | difficulty           | str      |
