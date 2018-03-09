@@ -1,0 +1,12 @@
+.container
+  = form_for @task do |f|
+    .form-group.mt10
+      = f.text_field :content, placeholder: "タスクを入力", class: "form-control"
+
+  - @tasks.each do |task|
+    p
+      = form_for task do |f|
+        .form-group.form-control.col-sm-8
+          = f.text_field :content, value: task.content, class: "w98per", style: "border: none"
+          =< link_to task_path(task.id), :method => :delete, class: "clear_fright" do
+            = fa_icon "remove"
