@@ -1,7 +1,7 @@
 .container
   = form_for @task do |f|
     .form-group.mt10
-      = f.text_field :content, placeholder: "タスクを入力", class: "form-control"
+      = f.text_field :content, placeholder: t('.input_task'), class: "form-control"
 
   - @tasks.each do |task|
     p
