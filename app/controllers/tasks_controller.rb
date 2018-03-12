@@ -11,8 +11,11 @@ before_action :set_task, only:[:update, :destroy]
 
   def create
     task = Task.new(task_params)
-    task.save
-    redirect_to tasks_path, notice: 'タスクが作成されました'
+    if task.save
+      redirect_to tasks_path, notice: 'タスクが作成されました'
+    else
+      redirect_to tasks_path, alert: 'タスクを入力してください'
+    end
   end
 
   def update
