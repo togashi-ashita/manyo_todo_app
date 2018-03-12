@@ -6,7 +6,7 @@ before_action :set_task, only:[:update, :destroy]
   def index
     # 暫定対処
     @task = Task.new
-    @tasks = Task.all
+    @tasks = Task.all.order(created_at: :desc)
   end
 
   def create
