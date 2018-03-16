@@ -922,19 +922,3 @@ strong {
 .mass_update_errors {
   background-color: red !important;
 }
-// フラッシュメッセージは利用しないので削除予定
-.notice {
-    width: 100%;
-    height: 30px;
-    color: white;
-    background-color: blue;
-    text-align: center;
-  }
-
-.alert {
-    width: 100%;
-    height: 30px;
-    color: white;
-    background-color: red;
-    text-align: center;
-  }

@@ -1,36 +1,32 @@
 class TasksController < ApplicationController
-# フラッシュメッセージは削除予定
 # 各アクションは非同期化する
 before_action :set_task, only:[:update, :destroy]
 
   def index
     # 暫定対処
     @task = Task.new
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks = Task.all.order(params[:sort])
   end
 
   def create
     task = Task.new(task_params)
-    if task.save
-      redirect_to tasks_path, notice: 'タスクが作成されました'
-    else
-      redirect_to tasks_path, alert: 'タスクを入力してください'
-    end
+    task.save
+    redirect_to tasks_path
   end
 
   def update
     @task.update(task_params)
-    redirect_to tasks_path, notice: 'タスクが編集されました'
+    redirect_to tasks_path
   end
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: 'タスクが削除されました'
+    redirect_to tasks_path
   end
 
   private
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :deadline)
   end
 
   def set_task
