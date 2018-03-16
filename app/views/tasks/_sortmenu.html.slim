@@ -1,0 +1,8 @@
+.dropdown
+  button#dropdownMenu.btn.btn-default.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+    = t('.label')
+  ul.dropdown-menu[aria-labelledby="dropdownMenu"]
+    li
+      = link_to t('.deadline'), sort: "deadline", id: "deadline"
+    li
+      = link_to t('.created_at'), sort: "created_at", id: "created_at"
