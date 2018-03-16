@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'jquery-rails'
 gem 'html2slim'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
@@ -41,6 +42,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'launchy'
   gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'rspec-rails'
