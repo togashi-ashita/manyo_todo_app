@@ -1,0 +1,9 @@
+- @tasks.each do |task|
+  p
+    = form_for task, html: {id: 'task_form'}, remote: true, format: :js do |f|
+      .form-group.form-control.col-sm-8
+        = f.text_field :content, value: task.content, class: "w80per", style: "border: none"
+        = f.date_field :deadline, value: "#{task.deadline ? task.deadline.strftime("%Y-%m-%d") : "" }", class: "input_field", style: "border: none"
+        =< link_to task_path(task.id), :method => :delete, remote: true do
+          p.clear_fright.btn.btn-danger.btn-xs
+            = t('.delete')

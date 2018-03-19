@@ -1,18 +1,11 @@
 .container
   p
-    = form_for @task do |f|
+    = form_for @task, remote: true do |f|
       .form-group.mt10.form-control.col-sm-8
-        = f.text_field :content, placeholder: t('.input_task'), class: "w85per", style: "border: none"
+        = f.text_field :content, placeholder: t('.input_task'), id: "content", class: "w85per", style: "border: none"
         = f.date_field :deadline, style: "border: none"
-
-  - @tasks.each do |task|
-    p
-      = form_for task do |f|
-        .form-group.form-control.col-sm-8
-          = f.text_field :content, value: task.content, class: "w80per", style: "border: none"
-          = f.date_field :deadline, value: "#{task.deadline ? task.deadline.strftime("%Y-%m-%d") : "" }", style: "border: none"
-          =< link_to task_path(task.id), :method => :delete do
-            p.clear_fright.btn.btn-danger.btn-xs
-              = t('.delete')
+        = f.hidden_field :compleate, value: 0
+  #tasks
+    = render 'tasks', collections: @tasks
 .container
   = render 'sortmenu'
