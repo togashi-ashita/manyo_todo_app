@@ -1,0 +1,2 @@
+$("#tasks").html("<%= escape_javascript(render 'tasks', tasks: @tasks) %>");
+$("#compleated_tasks").html("<%= escape_javascript(render 'compleated_tasks', tasks: @compleated) %>");

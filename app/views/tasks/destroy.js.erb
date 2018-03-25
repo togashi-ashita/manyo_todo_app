@@ -1,0 +1,2 @@
+$("#tasks").html("<%= escape_javascript( render(:partial => "tasks") ) %>");
+$('#compleated_tasks').html("<%=j render partial: 'compleated_tasks', collections: @compleated %>");

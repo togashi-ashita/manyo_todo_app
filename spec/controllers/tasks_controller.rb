@@ -29,7 +29,7 @@ describe TasksController do
     end
   end
 
-  describe 'delete #destroy' do
+  describe 'DELETE #destroy' do
     it "deletes the task" do
       task = create(:task)
       expect { task.destroy }.to change(Task, :count).by(-1)

@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# railsのremote:trueを使うために導入　jsにajax処理を追加後に廃止予定
+gem 'rails-ujs'
 gem 'jquery-rails'
 gem 'html2slim'
 gem 'bootstrap-sass'
