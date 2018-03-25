@@ -1,6 +1,27 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  # bulletの設定
+  config.after_initialize do
+    Bullet.enable  = true   # bullet を有効にする
 
+    # 以下はN+1問題を発見した時のユーザーへの通知方法
+    Bullet.alert   = true   # ブラウザのJavaScriptアラート
+    Bullet.bullet_logger = true # Rails.root/log/bullet.log
+    Bullet.console = true   # ブラウザの console.log の出力先
+    #Bullet.growl   = true   # Growl
+    #Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
+    #                :password => 'bullets_password_for_jabber',
+    #                :receiver => 'your_account@jabber.org',
+    #                :show_online_status => true }
+    Bullet.rails_logger = true # Railsのログ
+    #Bullet.bugsnag      = true # 総合デバッガツールbugsnag
+    #Bullet.airbrake     = true # Airbrake
+    #Bullet.raise        = true # Exceptionを発生
+    Bullet.add_footer   = true # 画面の下部に表示
+    # include paths with any of these substrings in the stack trace,
+    # even if they are not in your main app
+    #Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+  end
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
