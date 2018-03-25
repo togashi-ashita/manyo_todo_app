@@ -6,6 +6,8 @@
         = f.date_field :deadline, style: "border: none"
         = f.hidden_field :compleate, value: 0
   #tasks
-    = render 'tasks', collections: @tasks
-.container
-  = render 'sortmenu'
+    = render 'tasks'
+  #compleated_tasks.pt10
+    = render 'compleated_tasks'
+.container.pt10
+  = render 'sort_menu'

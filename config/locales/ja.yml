@@ -1,9 +1,13 @@
 ja:
+  labels:
+    delete: delete
+    submit: submit
   tasks:
     index:
       input_task: 'タスクを入力してください'
-      delete: 削除
-    sortmenu:
+    sort_menu:
       label: 並べ替え
       deadline: 締め切り日順
       created_at: 作成日順
+    compleated_tasks:
+      label: "%{tasks}の完了済みタスク"

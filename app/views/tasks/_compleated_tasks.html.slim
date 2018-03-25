@@ -1,10 +1,12 @@
-- @tasks.each do |task|
-  - if !task.compleate
+button.btn.btn-default#showCompleatedtask
+  = t('.label', :tasks => @compleated.count)
+.compleated.display-none
+  - @compleated.each do |task|
     p
-      = form_for task, html: {id: 'task_form'}, remote: true do |f|
+      = form_for task, html: {id: 'compleated_task_form'}, remote: true do |f|
         .form-group.form-control.col-sm-8
           = f.check_box :compleate
-          = f.text_field :content, value: task.content, class: "w75per", style: "border: none"
+          = f.text_field :content, value: task.content, class: "w75per content", style: "border: none"
           = f.date_field :deadline, value: "#{task.deadline ? task.deadline.strftime("%Y-%m-%d") : "" }", style: "border: none"
           = button_tag type: 'submit', style: "border: none" do
             p.clear_fright.btn.btn-primary.btn-xs

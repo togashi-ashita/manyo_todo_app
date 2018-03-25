@@ -4,7 +4,6 @@ before_action :set_task, only:[:update, :destroy]
 before_action :set_tasks
 
   def index
-    # 暫定対処
     @task = Task.new
   end
 
@@ -14,7 +13,6 @@ before_action :set_tasks
     respond_to do |format|
       format.js
     end
-    # redirect_to tasks_path
   end
 
   def update
@@ -26,9 +24,12 @@ before_action :set_tasks
 
   def destroy
     @task.destroy
-    respond_to do |format|
-      format.js
-    end
+    render nothing: true
+  end
+
+  def search_tasks
+    @tasks = Task.where('content like ?', "%#{params[:q]}%")
+    @compleated = Task.where(compleate: true).where('content like ?', "%#{params[:q]}%")
   end
 
   private
@@ -41,7 +42,9 @@ before_action :set_tasks
   end
 
   def set_tasks
+    # 暫定処理
     @tasks = Task.all.order(params[:sort])
+    @compleated = Task.where(compleate: true)
   end
 
 end
