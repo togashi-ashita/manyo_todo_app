@@ -43,8 +43,8 @@ before_action :set_tasks
 
   def set_tasks
     # 暫定処理
-    @tasks = Task.page(params[:page]).per(15).order(params[:sort])
-    @compleated = Task.where(compleate: true)
+    @tasks = Task.includes(:user).page(params[:page]).per(15).order(params[:sort])
+    @compleated = Task.includes(:user).where(compleate: true)
   end
 
 end
