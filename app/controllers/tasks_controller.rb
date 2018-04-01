@@ -34,7 +34,7 @@ before_action :set_tasks
 
   private
   def task_params
-    params.require(:task).permit(:content, :deadline, :compleate)
+    params.require(:task).permit(:content, :deadline, :compleate).merge(user_id: current_user.id)
   end
 
   def set_task
@@ -43,8 +43,8 @@ before_action :set_tasks
 
   def set_tasks
     # 暫定処理
-    @tasks = Task.includes(:user).page(params[:page]).per(15).order(params[:sort])
-    @compleated = Task.includes(:user).where(compleate: true)
+    @tasks = current_user.tasks.page(params[:page]).per(15).order(params[:sort])
+    @compleated = current_user.tasks.where(compleate: true)
   end
 
 end

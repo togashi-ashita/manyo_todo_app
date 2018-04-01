@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bcrypt'
 gem 'kaminari'
 # railsのremote:trueを使うために導入　jsにajax処理を追加後に廃止予定
 gem 'rails-ujs'
