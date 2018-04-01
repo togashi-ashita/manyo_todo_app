@@ -1,4 +1,8 @@
 .header.overflow-hidden
-  .inline-block.mt10.mb10.mr20.fright
+  .user.inline-block.mt10.mb10.mr20.fleft
+    = @current_user.name
+  .log_out.mt10.mb10.mr20.fleft
+    = link_to 'ログアウト', logout_path, :method => :delete
+  .search.inline-block.mt10.mb10.mr20.fright
     = fa_icon "search"
     input#search_tasks

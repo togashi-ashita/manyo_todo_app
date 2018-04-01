@@ -1,0 +1,11 @@
+= form_for :session, url: login_path do |f|
+  p
+    = "メール"
+    = f.email_field :email
+  p
+    = "パスワード"
+    = f.password_field :password
+
+  = f.submit 'ログイン'
+/ 暫定リンク
+= link_to '新規登録', new_user_path
